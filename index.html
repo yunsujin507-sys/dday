@@ -153,23 +153,24 @@ document.getElementById("addBtn").addEventListener("click", async () => {
     return;
   }
 
-try {
-  await addDoc(eventsRef, {
-    title,
-    date,
-    type
-  });
+  try {
+    await addDoc(eventsRef, {
+      title,
+      date,
+      type
+    });
 
-  document.getElementById("title").value = "";
-  document.getElementById("date").value = "";
+    document.getElementById("title").value = "";
+    document.getElementById("date").value = "";
+
+    alert("일정이 추가됐어요! 🎉");
+
+  } catch (error) {
+    console.error("일정 추가 오류:", error);
+    alert("일정 추가에 실패했어요!\n\n" + error.message);
+  }
+
 });
-
-  alert("일정이 추가됐어요! 🎉");
-
-} catch (error) {
-  console.error("일정 추가 오류:", error);
-  alert("일정 추가에 실패했어요!\n\n" + error.message);
-}
 function renderEvents(events) {
 
   const list = document.getElementById("eventList");
