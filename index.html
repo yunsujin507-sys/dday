@@ -153,6 +153,7 @@ document.getElementById("addBtn").addEventListener("click", async () => {
     return;
   }
 
+try {
   await addDoc(eventsRef, {
     title,
     date,
